@@ -51,33 +51,20 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
+        
+      </ul>
+      <!-- Left links -->
+      <ul>
+      <li class="nav-item">
           <a class="nav-link " href="login.php" tabindex="-1" aria-disabled="true"
             >login</a
           >
         </li>
+       
       </ul>
-      <!-- Left links -->
 
       <!-- Search form -->
-      <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="Register.php">Register</a>
-        </li>
-      <form class="d-flex input-group w-auto">
-        <input
-          type="search"
-          class="form-control"
-          placeholder="Type query"
-          aria-label="Search"
-        />
-        <button
-          class="btn btn-outline-primary"
-          type="button"
-          data-mdb-ripple-color="dark"
-        >
-          Search
-        </button>
-      </form>
+      
     </div>
     <!-- Collapsible wrapper -->
   </div>

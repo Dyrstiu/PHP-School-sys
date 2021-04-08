@@ -18,7 +18,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img
-            src="https://www.kenyans.co.ke/files/styles/article_inner_mobile/public/images/media/Machakosssss.JPG?itok=AHKV8YIu  "
+            src="images\Machakosssss.jpg "
             class="d-block w-100"
             alt="..."
             height="550px"
