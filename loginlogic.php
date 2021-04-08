@@ -9,7 +9,7 @@
     //connect
     require('dbconn.php');
     //sql
-    $sql = "SELECT * FROM students WHERE email = ?";
+    $sql = "SELECT * FROM `students` WHERE email=?";
 
     //use bind
     //prepare the statement
@@ -27,21 +27,21 @@
 
         //get results
         $result = mysqli_stmt_get_result($stmt);
-        echo "testing 1";
+        //echo "testing 1";
 
         if ($result) {
-            echo " result[]";
+           // echo " result[]";
         # code...
         $rows = mysqli_num_rows($result);
         if ($rows == 1) {
             $record = mysqli_fetch_assoc($result);
             # code...
-            echo" result[]";
+           // echo" result[]";
             //verify password
             //function password_verify
           
             $status = password_verify($password, $record['password']);
-            echo " .$password";
+            //echo " .$password";
             if ($status) {
                 # code...
                 echo "Successfully Logined In.Welcome ".$record['firstname'];
@@ -55,12 +55,12 @@
                 $_SESSION['role'] = $record['role'];
 
             }else{
-                echo "<h4 style='color:red'>Invalid email or password.Try again</h4>";
+                echo "<h5 style='color:red'>Invalid email or password.Try again</h5>";
             }
             
             
         }else{
-            echo "<h4 style='color:red'>Invalid email or password.Try again</h4>";
+            echo "<h5 style='color:red'>Invalid email or password.Try again</h5>";
         }
 
         }else{
