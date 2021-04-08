@@ -52,8 +52,9 @@
   <input
     class="form-check-input"
     type="radio"
-    name="Student"
+    name="flexRadioDefault"
     id="flexRadioDefault1"
+    value="Student"
   />
   <label class="form-check-label" for="flexRadioDefault1"> Student  </label>
 </div>
@@ -65,7 +66,7 @@
     type="radio"
     name="flexRadioDefault"
     id="flexRadioDefault2"
-    checked
+    value="Teacher"
   />
   <label class="form-check-label" for="flexRadioDefault2">Teacher</label>
 </div>
@@ -82,22 +83,24 @@
       $lastname =$_POST['lastname'];
       $email =$_POST['email'];
       $password =$_POST['password'];
+      $role= $_POST['flexRadioDefault'];
 
       //require connection file
       require('dbconn.php');
       //hash password 
       $passwordhash = password_hash($password,PASSWORD_DEFAULT);
       //create  query
-      $query = "INSERT INTO `students` (`firstname`, `lastname`, `email`, `password`)  VALUES (?,?,?,?)";
+      $query = "INSERT INTO `students` (`firstname`, `lastname`, `email`, `password`,`role`)  VALUES (?,?,?,?,?)";
       //prepare statement 
       if($stmt= mysqli_prepare($conn, $query)){
         // binding the prepared 
-        mysqli_stmt_bind_param($stmt,"ssss",$param_firstname,$param_lastname,$param_email,$param_password);
+        mysqli_stmt_bind_param($stmt,"sssss",$param_firstname,$param_lastname,$param_email,$param_password,$param_role);
 
         $param_firstname =$firstname;
         $param_lastname =$lastname;
         $param_email =$email;
         $param_password =$passwordhash;
+        $param_role = $role;
 
         mysqli_stmt_execute($stmt);
 
@@ -109,7 +112,7 @@
       $sql = mysqli_query($conn,$query) ;
       if($sql){
         echo"Registered succesfully";
-        header('location: login.php');
+        header('location:login.php');
       }else{echo(mysqli_error($conn));}
 
 
