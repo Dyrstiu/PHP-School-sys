@@ -18,13 +18,13 @@
   <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
-        <input  name="firstname" type="text" id="form3Example1" class="form-control" />
+        <input  name="firstname" type="text" id="form3Example1" class="form-control" required />
         <label class="form-label" for="form3Example1" >First name</label>
       </div>
     </div>
     <div class="col">
       <div class="form-outline">
-        <input name="lastname" type="text" id="form3Example2" class="form-control" />
+        <input name="lastname" type="text" id="form3Example2" class="form-control" required />
         <label class="form-label" for="form3Example2">Last name</label>
       </div>
     </div>
@@ -32,29 +32,43 @@
 
   <!-- Email input -->
   <div class="form-outline mb-4">
-    <input name="email" type="email" id="form3Example3" class="form-control" />
+    <input name="email" type="email" id="form3Example3" class="form-control"  required />
     <label class="form-label" for="form3Example3">Email address</label>
   </div>
 
   <!-- Password input -->
   <div class="form-outline mb-4">
-    <input name="password" type="password" id="form3Example4" class="form-control" />
+    <input name="password" type="password" id="form3Example4" class="form-control" required  />
     <label class="form-label" for="form3Example4">Password</label>
+  </div>
+  <!--select role -->
+  <div>
+    <h6>Select Role : </h6>
   </div>
 
   <!-- Checkbox -->
-  <div class="form-check d-flex justify-content-center mb-4">
-    <input
-      class="form-check-input me-2"
-      type="checkbox"
-      value=""
-      id="form2Example3"
-      checked
-    />
-    <label class="form-check-label" for="form2Example3">
-      Subscribe to our newsletter
-    </label>
-  </div>
+  <!-- Default radio -->
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="Student"
+    id="flexRadioDefault1"
+  />
+  <label class="form-check-label" for="flexRadioDefault1"> Student  </label>
+</div>
+
+<!-- Default checked radio -->
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="flexRadioDefault"
+    id="flexRadioDefault2"
+    checked
+  />
+  <label class="form-check-label" for="flexRadioDefault2">Teacher</label>
+</div>
 
   <!-- Submit button -->
   <button name="register" type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
@@ -74,11 +88,28 @@
       //hash password 
       $passwordhash = password_hash($password,PASSWORD_DEFAULT);
       //create  query
-      $query = "INSERT INTO `students` (`firstname`, `lastname`, `email`, `password`) VALUES ( '$firstname', '$lastname',' $email', '$passwordhash')";
+      $query = "INSERT INTO `students` (`firstname`, `lastname`, `email`, `password`)  VALUES (?,?,?,?)";
+      //prepare statement 
+      if($stmt= mysqli_prepare($conn, $query)){
+        // binding the prepared 
+        mysqli_stmt_bind_param($stmt,"ssss",$param_firstname,$param_lastname,$param_email,$param_password);
+
+        $param_firstname =$firstname;
+        $param_lastname =$lastname;
+        $param_email =$email;
+        $param_password =$passwordhash;
+
+        mysqli_stmt_execute($stmt);
+
+
+
+      }  
+
       
       $sql = mysqli_query($conn,$query) ;
       if($sql){
         echo"Registered succesfully";
+        header('location: login.php');
       }else{echo(mysqli_error($conn));}
 
 

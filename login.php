@@ -52,7 +52,7 @@
                   
                       <div class="col">
                         <!-- Simple link -->
-                        <a href="#!">Forgot password?</a>
+                        <a href="Register.php ">Register </a>
                       </div>
                     </div>
                   
