@@ -76,8 +76,7 @@
           <div class="card-body">
             <h5 class="card-title">Academics</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the
-              card's content.
+              We produce the best students in this educational field . Our Teachers are qualified and dedicated to producing the best performers inthe country .
             </p>
             <a href="#!" class="btn btn-primary">Learn More </a>
           </div>
@@ -91,8 +90,7 @@
           <div class="card-body ">
             <h5 class="card-title">Sports</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the
-              card's content.
+              Our Football team is among the  best in the region , having won the schools sports competion for several yrs .Other sports also perform well i.e  <i class="e">Rugby , Hockey , Basketball and Lawn tennnis.</i>
             </p>
             <a href="#!" class="btn btn-primary">Learn More</a>
           </div>
@@ -106,8 +104,7 @@
           <div class="card-body ">
             <h5 class="card-title">Drama & Film</h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the
-              card's content.
+              To develop our students talents in drama the drama club was established . Our students have shown excellence in this field , reaching the national level uncountable times.
             </p>
             <a href="#!" class="btn btn-primary">Learn More </a>
           </div>
@@ -119,10 +116,9 @@
             alt="..."
           />
           <div class="card-body">
-            <h5 class="card-title">Art and Craft</h5>
+            <h5 class="card-title">Music </h5>
             <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the
-              card's content.
+                 Our school band which was recently created , has become on of the best in the region . Students have found a new heaven to nature their talents in music here .
             </p>
             <a href="#!" class="btn btn-primary">Learn More</a>
           </div>

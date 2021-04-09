@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <!-- Container wrapper -->
@@ -42,26 +47,39 @@
           Courses
           </a>
           <!-- Dropdown menu -->
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="courses.php">Add course</a></li>
-            <li><a class="dropdown-item" href="assign.php">Assign Course</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li>
-              <a class="dropdown-item" href="students.php">Courses</a>
-            </li>
-          </ul>
-        </li>
+          <?php if ( $_SESSION['role']== 'Teacher' ){
+            echo '
+                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="courses.php">Add course</a></li>
+                    <li><a class="dropdown-item" href="assign.php">Assign Course</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                     <a class="dropdown-item" href="students.php">Courses</a>
+                   </li>
+                 </ul>
+                   </li>
         
-      </ul>
+                 </ul>
+            '
+
+          ;} else if ($_SESSION['role']== 'Student'){
+            echo '
+                <li class="nav-item">
+                  <a class="nav-link" href="students.php">Courses</a>
+              </li>';
+          }
+          ?>
       <!-- Left links -->
-      <ul>
-      <li class="nav-item">
-          <a class="nav-link " href="login.php" tabindex="-1" aria-disabled="true"
-            >login</a
-          >
-        </li>
-       
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+          <li class="nav-item">
+             <a class="nav-link " href="login.php" tabindex="-1" aria-disabled="true"
+              >login</a>
+           </li>
+
       </ul>
+      
+       
+      
 
       <!-- Search form -->
       
