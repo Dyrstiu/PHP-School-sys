@@ -102,18 +102,21 @@
         $param_password =$passwordhash;
         $param_role = $role;
 
-        mysqli_stmt_execute($stmt);
+        $sql = mysqli_stmt_execute($stmt);
+        
 
+        if($sql){
+          echo"Registered succesfully";
+          header('location:login.php');
+        }else{echo(mysqli_error($conn));}
 
+        mysqli_close($conn);
 
       }  
 
       
-      $sql = mysqli_query($conn,$query) ;
-      if($sql){
-        echo"Registered succesfully";
-        header('location:login.php');
-      }else{echo(mysqli_error($conn));}
+      
+      
 
 
     }
