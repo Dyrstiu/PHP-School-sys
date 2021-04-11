@@ -61,18 +61,35 @@
                       $coursecode =$_POST['coursecode'] ;
                       $teachersname=$_POST['teachersname'];
 
-                      $query = "INSERT INTO `courses` ( `coursename`, `coursecode`, `teachersname`) VALUES ( '$coursename', '$coursecode', '$teachersname') ";
-                      $sql = mysqli_query($conn,$query) ;
-                      if($sql){
+                      $query = "INSERT INTO `courses` ( `coursename`, `coursecode`, `teachersname`) VALUES ( ?,?,?) ";
+                      //prepare statement
+                      if (  $stmt = mysqli_prepare($conn, $query)){
+                        mysqli_stmt_bind_param($stmt,"sss",$param_name,$param_code,$param_teacher);
+                       
+                        $param_name =$coursename;
+                        $param_code =$coursecode;
+                        $param_teacher =$teachersname;
+
+                        
+                        $sql = mysqli_stmt_execute($stmt);
+                        if($sql){
                              echo'<div class="alert alert-success mb-0 alert-dismissible alert-absolute fade show " id="alertExample" role="alert" data-mdb-color="secondary">
                              <i class="fas fa-check me-2"></i>
                               Course has been added succesfully!
                              
                              <button type="button" class="btn-close ms-2" data-mdb-dismiss="alert" aria-label="Close"></button>
                            </div>';
-                      }else{echo(mysqli_error($conn));}
+                         }else{echo(mysqli_error($conn));}
 
-                     mysqli_close($conn);
+                        mysqli_close($conn);
+
+
+
+                     }
+                      //execute 
+
+
+                      
                     }
                    
                 ?>

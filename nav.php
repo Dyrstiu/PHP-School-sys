@@ -87,5 +87,4 @@ session_start();
     <!-- Collapsible wrapper -->
   </div>
   <!-- Container wrapper -->
-</nav>
 <!-- Navbar -->
